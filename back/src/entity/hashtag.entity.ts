@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Post } from './post.entity';
 
+@Entity()
 export class Hashtag {
   @PrimaryGeneratedColumn({ name: 'id' })
   id: number;
@@ -12,4 +14,7 @@ export class Hashtag {
     example: '#해시태그',
   })
   name: string;
+
+  @ManyToMany(() => Post, (post) => post.hashtags)
+  posts: Hashtag[];
 }

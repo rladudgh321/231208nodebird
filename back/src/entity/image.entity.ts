@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Post } from './post.entity';
 
+@Entity()
 export class Image {
   @PrimaryGeneratedColumn({ name: 'id' })
   id: number;
@@ -11,4 +13,7 @@ export class Image {
     required: true,
   })
   src: string;
+
+  @ManyToOne(() => Post, (post) => post.images)
+  post: Post[];
 }

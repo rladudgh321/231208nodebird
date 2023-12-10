@@ -12,7 +12,6 @@ export class SignUpDto {
   email: string;
 
   @IsNotEmpty()
-  @IsStrongPassword()
   @ApiProperty({
     description: '비밀번호',
     required: true,

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './routes/user/user.module';
 import { config } from 'dotenv';
+import { AuthModule } from './auth/auth.module';
 
 config({ path: '.env.local' });
 
@@ -17,10 +18,11 @@ config({ path: '.env.local' });
       password: '111111',
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
       logging: true,
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

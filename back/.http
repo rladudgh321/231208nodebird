@@ -1,2 +1,21 @@
 # get
 GET http://127.0.0.1:8000/user
+###
+# signup 회원가입
+POST http://127.0.0.1:8000/user
+content-type: application/json
+
+{
+    "email": "222@gmail.com",
+    "password": "222222",
+    "nickname": "kkk"
+}
+###
+#login 로컬패스포트 로그인
+POST http://127.0.0.1:8000/login
+content-type: application/json
+
+{
+    "email": "222@gmail.com",
+    "password": "222222"
+}

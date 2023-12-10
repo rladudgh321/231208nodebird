@@ -7,8 +7,8 @@ import { SignUpDto } from './dto/sign-up.dto';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-  // @Post() //signup
-  // signup(@Body(new ValidationPipe()) data: SignUpDto) {
-  //   return this.userService.signup(data);
-  // }
+  @Post() //signup
+  signup(@Body(new ValidationPipe()) data: SignUpDto) {
+    return this.userService.signup(data);
+  }
 }
